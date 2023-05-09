@@ -1,7 +1,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Euler's elastica}%
+\section{Euler's elastica under contact}\label{sec:elastica}
+%
+This section delves into the problem of an elastica undergoing contact. We will explore the intricacies of this problem and its formulation as a constrained second order Lagrangian problem with augmented Lagrangian, while also discussing the implementation of the associated Python code.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Euler's elastica}
 The elastica problem was one of the earliest uses of the calculus of variations, first posed by Jacob Bernoulli and solved by Leonhard Euler, after being introduced to it by his nephew and pupil Daniel Bernoulli \cite{matsutani2010}. It was precisely Daniel who reduced the problem as that of finding a curve which minimizes the functional
 \begin{equation*}
     \int_0^l \kappa(s)^2 ds
