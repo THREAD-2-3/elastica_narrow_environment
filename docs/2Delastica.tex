@@ -2,23 +2,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Euler's elastica under contact}\label{sec:elastica}
 %
-This section delves into the problem of an elastica undergoing contact. We will explore the intricacies of this problem and its formulation as a constrained second order Lagrangian problem with augmented Lagrangian, while also discussing the implementation of the associated Python code. The link to  the GitHub repository of this code is \url{https://github.com/THREAD-2-3/elastica_narrow_environment}. 
+This section delves into the problem of an elastica undergoing contact. We will explore the intricacies of this problem and its formulation as a constrained second order Lagrangian problem with augmented Lagrangian, while also discussing the implementation of the associated Python code. The link to the GitHub repository of this code is \url{https://github.com/THREAD-2-3/elastica_narrow_environment}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Euler's elastica}
-The elastica problem was one of the earliest uses of the calculus of variations, first posed by Jacob Bernoulli and solved by Leonhard Euler, after being introduced to it by his nephew and pupil Daniel Bernoulli \cite{matsutani2010}. It was precisely Daniel who reduced the problem as that of finding a curve which minimizes the functional
+The elastica problem was one of the earliest uses of the calculus of variations, first posed by Jacob Bernoulli and solved by Leonhard Euler, after being introduced to it by his nephew and pupil Daniel Bernoulli \cite{matsutani2010}. It was precisely Daniel who reduced the problem to that of finding a curve that minimizes the functional
 \begin{equation*}
     \int_0^l \kappa(s)^2 ds
 \end{equation*}
 where $\kappa(s)$ denotes the curvature of a curve, and $s, l \in \mathbb{R}$ are the arc-length parameter and total length of the curve respectively. If $q: [0, l] \to \mathbb{R}^2$ denotes a curve parametrized by arc-length, then $\kappa(s) = q''(s)$, where $' = \frac{d}{d s}$.\\
 
-The requirement of arc-length on its changing rate, i.e. $\Vert q'(s) \Vert = 1$, can be introduced as a constraint in the system. Thus, the problem can be stated as a constrained second order Lagrangian problem with augmented Lagrangian $L: T^{(2)}Q \times \mathbb{R} \rightarrow \mathbb{R}$ \cite{singer2008}.
+The requirement of arc length on its changing rate, i.e. $\Vert q'(s) \Vert = 1$, can be introduced as a constraint in the system. Thus, the problem can be stated as a constrained second order Lagrangian problem with augmented Lagrangian $L: T^{(2)}Q \times \mathbb{R} \rightarrow \mathbb{R}$ \cite{singer2008}.
 
 \begin{equation}\label{eq:L_static_elastica}
     L \left( q, q', q'',\Lambda\right) = \frac{1}{2} EI ||q''||^2 + \Lambda (||q'||^2-1) 
 \end{equation}
 
-Here, $\Lambda$ is the Lagrange multiplier enforcing the constraint, and the stiffness of the elastica has been parametrized by $E$, its Young's modulus, and $I$, the second moment of area of the beam's cross-section. The continuous action integral $S$ is defined as:
+Here, $\Lambda$ is the Lagrange multiplier enforcing the constraint, and the stiffness of the elastica has been parametrized by $E$, the Young modulus, and $I$, the second moment of area of the beam's cross-section. The continuous action integral $S$ is defined as:
 
 \begin{equation}
     S = \int_{0}^{l} L \left(q,q',q'',\Lambda \right) \,ds 
@@ -59,7 +59,7 @@ where
 
 % TODO: Insert here more information about the discrete momenta.
 
-In this study case, $\alpha=1$ is chosen. The discrete action $S_d$ associated to this Lagrangian is
+In this study case, $\alpha=1$ is chosen. The discrete action $S_d$ associated with this Lagrangian is
 \begin{equation}
     S_d = \sum_{i=0}^{N-1} L_d \left( q_i, q'_i, q_{i+1}, q'_{i+1}, \Lambda_i, \Lambda_{i+1} \right)
 \end{equation}
